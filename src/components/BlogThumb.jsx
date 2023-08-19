@@ -7,7 +7,7 @@ function BlogThumb({ blog }) {
   return (
     <div>
       <p><Link to={`/${blog.name}`}>{unescape(blog.title)}</Link></p>
-      <p>{unescape(blog.description)}</p>
+      <p>{unescape(blog.description || blog.preview)}</p>
       <p><Link to={`/authors/${unescape(blog.owner.username)}`}>{unescape(blog.owner.username)}</Link></p>
     </div>
   )

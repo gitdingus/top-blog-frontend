@@ -11,6 +11,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   },
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
@@ -22,6 +23,14 @@ module.exports = {
             presets: ['@babel/preset-react']
           },
         },
+      },
+      {
+        test: /\.(png|svg)$/,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },

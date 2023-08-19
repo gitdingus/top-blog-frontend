@@ -1,0 +1,79 @@
+
+#sign-in-modal,
+#create-account-modal {
+  display: none;
+}
+
+#sign-in-modal.expanded,
+#create-account-modal.expanded {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(255, 255, 255, .5);
+}
+
+#sign-in-form,
+#create-account-form {
+  background-color: white;
+  display: block;
+  box-shadow: 1px 1px 3px black;
+  border-radius: 10px;
+}
+
+#sign-in-form .top-bar,
+#create-account-form .top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+#sign-in-form .top-bar p,
+#create-account-form .top-bar p { 
+  flex : 1;
+  margin: 0;
+  margin-left: 30px;
+}
+
+/* #sign-in-form .form-area,
+#create-account-form .form-area {
+
+  padding: 40px;
+  padding-top: 20px;
+}
+
+#sign-in-form .form-area form,
+#create-account-form .form-area form {
+
+  display: grid;
+}
+
+#sign-in-form form input,
+#create-account-form form input,
+#create-account-form form select {
+  margin-bottom: 30px;
+} */
+
+.close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border: 0;
+  background-color: transparent;
+
+  margin: 3px;
+}
+
+/* .error {
+  margin-top: -25px;
+  margin-bottom: 30px;
+} */

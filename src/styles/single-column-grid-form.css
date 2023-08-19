@@ -1,0 +1,19 @@
+.single-column-grid-form.form-area {
+  padding: 40px;
+  padding-top: 20px;
+}
+
+.single-column-grid-form.form-area form {
+  display: grid;
+}
+
+.form-area form input,
+.form-area form select,
+.form-area form textarea {
+  margin-bottom: 30px;
+}
+
+.form-area form .error {
+  margin-top: -25px;
+  margin-bottom: 30px;
+}

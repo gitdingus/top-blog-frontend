@@ -1,0 +1,17 @@
+.actions {
+  display: flex;
+  gap: 8px;
+}
+.blog-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+}

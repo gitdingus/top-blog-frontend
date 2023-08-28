@@ -11,6 +11,7 @@ import BlogPost from './views/BlogPost.jsx';
 import Categories from './views/Categories.jsx';
 import Category from './views/Category.jsx';
 import CreateBlog from './components/CreateBlog.jsx';
+import CreateBlogPost from './components/CreateBlogPost.jsx';
 import EditBlog from './components/EditBlog.jsx';
 import Home from './views/Home.jsx';
 import Preferences from './views/Preferences.jsx';
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
           {
             path: 'blogs/:blogId/edit-blog',
             element: <EditBlog />,
+          },
+          {
+            path: 'blogs/:blogId/create-post',
+            element: <CreateBlogPost />,
           },
         ],
       },

@@ -1,0 +1,26 @@
+.blogLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blogLine:hover {
+  background-color: #f5f5f5;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.menuButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}

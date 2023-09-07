@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { unescape } from 'validator';
 import BlogThumb from '../components/BlogThumb.jsx';
+import styles from '../styles/category.module.css';
 
 function Category() {
   const params = useParams();
@@ -41,7 +42,7 @@ function Category() {
 
   return (
     <div>
-      <div>
+      <div className={styles.categoryHeader}>
         <h1>{unescape(category.name)}</h1>
         <p>{unescape(category.description)}</p>
       </div>

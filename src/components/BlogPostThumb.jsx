@@ -10,18 +10,18 @@ function BlogPostThumb({ post }) {
     <div className="blog-post-thumb">
       <p className="author-category">
         <span>
-          <Link to={`./authors/${post.author.username}`}>{
+          <Link to={`./authors/${post.author.doc.username}`}>{
             (
-              post.author.firstName !== undefined && post.author.lastName !== undefined
-              && `${post.author.firstName} ${post.author.lastName}`
+              post.author.doc.firstName !== undefined && post.author.doc.lastName !== undefined
+              && `${post.author.doc.firstName} ${post.author.doc.lastName}`
             ) ||
-            post.author.username
+            post.author.doc.username
           }</Link>
         </span>
         &nbsp;in&nbsp; 
-        <CategoryButton category={post.blog.category} />
+        <CategoryButton category={post.blog.doc.category} />
       </p>
-      <p className="title"><Link to={`./${post.blog.name}/${post._id}`}>{unescape(post.title)}</Link></p>
+      <p className="title"><Link to={`./${post.blog.doc.name}/${post._id}`}>{unescape(post.title)}</Link></p>
       <p className="date">posted on: {new Date(post.created).toLocaleDateString()}</p>
     </div>
   )

@@ -1,0 +1,26 @@
+.page {
+  display: flex;
+}
+
+.page .recent-posts {
+  flex: 1;
+}
+
+.page .categories-section {
+  width: max(200px, 33%);
+}
+.page .categories {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.page .categories .category-button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+  border-radius: 20px;
+}
+
+.page .categories .category-button a {
+  text-decoration: none;
+}

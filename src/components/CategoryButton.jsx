@@ -4,7 +4,7 @@ import { unescape } from 'validator';
 
 function CategoryButton({ category }) {
   return (
-    <span>
+    <span className="category-button">
       <Link to={`/categories/${category._id}`}>
         { unescape(category.name) }
       </Link>

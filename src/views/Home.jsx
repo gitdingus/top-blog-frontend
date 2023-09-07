@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import BlogPostThumb from '../components/BlogPostThumb.jsx';
 import CategoryButton from '../components/CategoryButton.jsx';
+
+import '../styles/home.css';
+
 function Home() {
   const [ recentPosts, setRecentPosts ] = useState([]);
   const [ categories, setCategories ] = useState([]);
@@ -28,18 +31,18 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <section>
-        <div className='recent-posts'>
+    <div className="page">
+      <section className='recent-posts'>
+        <div>
           <h2>Recent blog posts</h2>
           {
             recentPosts.map(post => <BlogPostThumb post={post} key={post._id} />)
           }
         </div>
       </section>
-      <section>
-        <div>
-          <h2>Discover categories</h2>
+      <section className="categories-section">
+        <h2>Discover categories</h2>
+        <div className="categories">
           {
             categories.map(category => <CategoryButton category={category} key={category._id} />)
           }

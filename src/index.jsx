@@ -13,6 +13,7 @@ import Category from './views/Category.jsx';
 import CreateBlog from './components/CreateBlog.jsx';
 import CreateBlogPost from './components/CreateBlogPost.jsx';
 import EditBlog from './components/EditBlog.jsx';
+import EditBlogPost from './components/EditBlogPost.jsx';
 import Home from './views/Home.jsx';
 import Preferences from './views/Preferences.jsx';
 import ReaderRoot from './views/Root.jsx';
@@ -20,6 +21,7 @@ import ChangePassword from './components/ChangePassword.jsx';
 import UpdatePersonalInformation from './components/UpdatePersonalInformation.jsx';
 import UpdateSettings from './components/UpdateSettings.jsx';
 import ViewUsersBlogs from './components/ViewUsersBlogs.jsx';
+import ViewUsersBlogPosts from './components/ViewUsersBlogPosts.jsx';
 
 const rootDiv = document.querySelector('#root');
 const root = createRoot(rootDiv);
@@ -74,6 +76,14 @@ const router = createBrowserRouter([
           {
             path: 'blogs',
             element: <ViewUsersBlogs />
+          },
+          {
+            path: 'blogposts',
+            element: <ViewUsersBlogPosts />,
+          },
+          {
+            path: 'blogposts/:blogPostId/edit-blogpost',
+            element: <EditBlogPost />,
           },
           {
             path: 'blogs/:blogId/edit-blog',

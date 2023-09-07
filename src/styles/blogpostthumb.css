@@ -1,0 +1,12 @@
+.blog-post-thumb {  
+  margin: 40px;
+}
+
+.blog-post-thumb * {
+  margin: 5px 0;
+}
+
+.blog-post-thumb .title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}

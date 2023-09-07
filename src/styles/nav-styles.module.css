@@ -1,0 +1,41 @@
+.navHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -3px 10px black;
+  background-color: #fafafa;
+}
+
+.navHeader nav {
+  flex: 1;
+}
+
+.navHeader nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 20px;
+}
+
+.navHeader nav ul li a {
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+
+.navHeader nav ul li:hover {
+  animation: 200ms ease-in 0ms jump;
+}
+
+@keyframes jump {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

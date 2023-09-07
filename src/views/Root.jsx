@@ -3,8 +3,8 @@ import { Outlet, Link } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext.jsx';
 import AccountManager from '../components/AccountManager.jsx';
 
-import '../styles/nav-styles.css';
-
+import styles from '../styles/nav-styles.module.css';
+import '../styles/root.css';
 function ReaderRoot() {
   const [ currentUser, setCurrentUser ] = useState(null);
 
@@ -27,7 +27,7 @@ function ReaderRoot() {
   return (
     <div>
       <UserContext.Provider value={{currentUser, setCurrentUser}}>
-        <header>
+        <header className={styles.navHeader}>
           <nav>
             <ul>
               <li><Link to="/">Home</Link></li>
@@ -39,7 +39,9 @@ function ReaderRoot() {
           </nav>
           <AccountManager />
         </header>
-        <Outlet />
+        <div className="content">
+          <Outlet />
+        </div>
       </UserContext.Provider>
     </div>
   )

@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext.jsx';
-
+import styles from '../styles/preferences.module.css';
 function Preferences() {
   const activeUser = useContext(UserContext);
   const location = useLocation();
@@ -11,19 +11,21 @@ function Preferences() {
   }
 
   return (
-    <div>
-      <ul>
-        <li className={`${location.pathname.match(/change-password/) !== null ? 'active-page' : ''}`}>
+    <div className={styles.preferencesMenu}>
+      <ul className={styles.preferencesOptions}>
+        <li className={`${location.pathname.match(/change-password/) !== null ? styles.active : ''}`}>
           <Link to="change-password">Change Password</Link>
         </li>
-        <li className={`${location.pathname.match(/personal-info/) !== null ? 'active-page' : ''}`}>
+        <li className={`${location.pathname.match(/personal-info/) !== null ? styles.active : ''}`}>
           <Link to="personal-info">Update Personal Information</Link>
         </li>
-        <li className={`${location.pathname.match(/settings/) !== null ? 'active-page' : ''}`}>
+        <li className={`${location.pathname.match(/settings/) !== null ? styles.active : ''}`}>
           <Link to="settings">Update Settings</Link>
         </li>
       </ul>
-      <Outlet />
+      <div className={styles.preferences}>
+        <Outlet />
+      </div>
     </div>
 
   )

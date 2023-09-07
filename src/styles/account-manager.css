@@ -1,3 +1,16 @@
+.account-manager {
+  padding-right: 1rem;
+}
+.account-manager>.buttons button {
+  border: none;
+  background-color: transparent;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
+.top-bar>.buttons button:hover {
+  cursor: pointer;
+}
 
 #sign-in-modal,
 #create-account-modal {
@@ -42,25 +55,6 @@
   margin-left: 30px;
 }
 
-/* #sign-in-form .form-area,
-#create-account-form .form-area {
-
-  padding: 40px;
-  padding-top: 20px;
-}
-
-#sign-in-form .form-area form,
-#create-account-form .form-area form {
-
-  display: grid;
-}
-
-#sign-in-form form input,
-#create-account-form form input,
-#create-account-form form select {
-  margin-bottom: 30px;
-} */
-
 .close-button {
   display: flex;
   justify-content: center;
@@ -73,7 +67,46 @@
   margin: 3px;
 }
 
-/* .error {
-  margin-top: -25px;
-  margin-bottom: 30px;
-} */
+.account-manager.logged-in {
+  padding: 10px;
+}
+
+.account-manager.logged-in *{
+  margin: 5px;
+  font-size: 1rem;
+}
+
+.account-manager.logged-in .clicker {
+  display: inline-block;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  color: black;
+}
+
+@keyframes jump {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

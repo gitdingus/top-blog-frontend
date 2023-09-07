@@ -23,7 +23,7 @@ function AccountManager() {
 
   if (currentUser === null) { // Give ability to login
     return (
-      <div id="account-manager">
+      <div className="account-manager">
         <div id="sign-in-modal" className={`${showSignInModal ? 'expanded' : ''}`}>
           <div id="sign-in-form">
             <div className="top-bar">
@@ -196,10 +196,10 @@ function AccountManager() {
     )
   } else if (typeof currentUser === 'object') { // User is logged
     return (
-      <div className="account-manager">
+      <div className="account-manager logged-in">
         <p>Welcome { (currentUser.firstName && currentUser.lastName && `${currentUser.firstName} ${currentUser.lastName}`) || `${currentUser.username}`}</p>
-        <Link to="preferences">Manage Preferences</Link>
-        <button onClick={() => {
+        <Link className="clicker" to="preferences">Manage Preferences</Link>
+        <button className="clicker" onClick={() => {
           fetch('http://localhost:3000/api/logout', {
             method: 'post',
             credentials: 'include',

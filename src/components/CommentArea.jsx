@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { unescape } from 'validator';
 import { UserContext } from '../contexts/UserContext.jsx';
 import getLoggedInUser from '../utils/getLoggedInUser';
 import createErrorObject from '../utils/createErrorObject.js';
@@ -106,12 +107,12 @@ function CommentArea() {
             return (
               <div className="comment" key={comment._id}>
                 {
-                  comment.author.firstName && comment.author.lastName && <p>{`${comment.author.firstName} ${comment.author.lastName}`}</p>
+                  comment.author.doc.firstName && comment.author.doc.lastName && <p>{`${unescape(comment.author.doc.firstName)} ${unescape(comment.author.doc.lastName)}`}</p>
                   || 
-                  <p>{comment.author.username}</p>
+                  <p>{unescape(comment.author.doc.username)}</p>
                 }
                 <p>{new Date(comment.created).toLocaleString()}</p>
-                <p>{comment.content}</p>
+                <p>{unescape(comment.content)}</p>
               </div>
             )
           })

@@ -52,15 +52,15 @@ function Blog() {
   return (
     <div>
       <div className={styles.authorInfo}>
-        <img src={blog.owner.image || defaultAuthorImage} alt='author' />
+        <img src={blog.owner.doc.image || defaultAuthorImage} alt='author' />
         <p>
           {
             (
-              blog.owner.firstName 
-              && blog.owner.lastName 
-              && `${unescape(blog.owner.firstName)} ${unescape(blog.owner.lastName)}`
+              blog.owner.doc.firstName 
+              && blog.owner.doc.lastName 
+              && `${unescape(blog.owner.doc.firstName)} ${unescape(blog.owner.doc.lastName)}`
             ) ||
-            `${unescape(blog.owner.username)}`
+            `${unescape(blog.owner.doc.username)}`
           }
         </p>
       </div>

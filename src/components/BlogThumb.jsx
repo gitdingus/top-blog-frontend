@@ -9,10 +9,10 @@ function BlogThumb({ blog }) {
     <div className={styles.blogThumb}>
       <p><Link to={`/${blog.name}`}>{unescape(blog.title)}</Link></p>
       <p>{unescape(blog.description || blog.preview)}</p>
-      <p><Link to={`/authors/${unescape(blog.owner.username)}`}>{
-        blog.owner.firstName !== undefined && blog.owner.lastName !== undefined
-        && unescape(`${blog.owner.firstName} ${blog.owner.lastName}`)
-        || unescape(blog.owner.username)
+      <p><Link to={`/authors/${unescape(blog.owner.doc.username)}`}>{
+        blog.owner.doc.firstName !== undefined && blog.owner.doc.lastName !== undefined
+        && unescape(`${blog.owner.doc.firstName} ${blog.owner.doc.lastName}`)
+        || unescape(blog.owner.doc.username)
       }</Link></p>
     </div>
   )

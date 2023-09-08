@@ -29,21 +29,21 @@ function BlogPost() {
   return (
     <div className={styles.blogContent}>
       <div className={styles.authorInfo}>
-        <img src={blogPost.author.image || defaultAuthorImage} alt="author" />
+        <img src={blogPost.author.doc.image || defaultAuthorImage} alt="author" />
         <p>
           {
             (
-              blogPost.author.firstName 
-              && blogPost.author.lastName 
-              && `${unescape(blogPost.author.firstName)} ${unescape(blogPost.author.lastName)}`
+              blogPost.author.doc.firstName 
+              && blogPost.author.doc.lastName 
+              && `${unescape(blogPost.author.doc.firstName)} ${unescape(blogPost.author.doc.lastName)}`
             ) ||
-            `${unescape(blogPost.author.username)}`
+            `${unescape(blogPost.author.doc.username)}`
           }
         </p>
       </div>
       <header className={styles.articleHeader}>
         <div>
-          <p><Link to={`/${blogPost.blog.name}`}>{unescape(blogPost.blog.title)}</Link></p>
+          <p><Link to={`/${blogPost.blog.doc.name}`}>{unescape(blogPost.blog.doc.title)}</Link></p>
         </div>
         <div>
           <h1>{unescape(blogPost.title)}</h1>

@@ -105,6 +105,7 @@ function ViewUsersBlogs() {
                       })
                       .catch((err) => {
                         alert('Please log back in to complete current operation');
+                        setCurrentUser(null);
                       })  
                 }}>
                   <img 

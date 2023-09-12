@@ -6,7 +6,8 @@ import getLoggedInUser from '../utils/getLoggedInUser.js';
 import styles from '../styles/view-users-blog-posts.module.css';
 import editSvg from '../images/clipboard-edit.svg';
 import deleteSvg from '../images/delete.svg';
-
+import eyeOpenSvg from '../images/eye-open.svg';
+import eyeOffSvg from '../images/eye-off.svg';
 function ViewUsersBlogPosts() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
   const [ blogs, setBlogs ] = useState([]);
@@ -60,6 +61,31 @@ function ViewUsersBlogPosts() {
     }
   }
 
+  const togglePrivate = (blogPost) => {
+    console.log("in toggle");
+    fetch(`http://localhost:3000/api/users/${currentUser._id}/blog-posts/${blogPost._id}/edit`, {
+      method: 'post',
+      headers: {
+        'content-type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        private: !blogPost.private,
+      }),
+    })
+      .then((res) => {
+        console.log("thenning");
+        if (res.status === 204) {
+          const post = blogPosts.find((p) => p._id === blogPost._id);
+          post.private = !blogPost.private;
+
+          setBlogPosts([...blogPosts]);
+        }
+      })
+      .catch((err) => console.log(err));
+
+    console.log("exiting toggle");
+  }
   return (
     <>
       <form onSubmit={(e) => {
@@ -96,6 +122,26 @@ function ViewUsersBlogPosts() {
                 <Link to={`${post._id}/edit-blogpost`}>
                   <img src={editSvg} className={styles.menuButton} title="Edit Blog Post" alt={`edit blog post ${post.title}`} />
                 </Link>
+                <button type="button" className={styles.menuButton} onClick={() => {
+                  getLoggedInUser()
+                    .then((userData) => {
+                      console.log(currentUser._id);
+                      console.log(userData._id);
+                      if (currentUser._id === userData._id) {
+                        console.log("toggling");
+                        togglePrivate(post);
+                      } else {
+                        console.log("elsing");
+                        throw new Error("Session expired");
+                      }
+                    })
+                    .catch((err) => {
+                      alert("Session expired: Please log in to perform operation");
+                      setCurrentUser(null);
+                    })
+                }}>
+                  <img src={post.private === true ? eyeOffSvg : eyeOpenSvg} title="Set Post to Private" alt={`set ${post.title} to private`} />
+                </button>
                 <button type="button" className={styles.menuButton} onClick={() => {
                   getLoggedInUser()
                     .then((userData) => {

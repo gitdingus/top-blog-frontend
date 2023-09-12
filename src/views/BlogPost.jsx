@@ -12,14 +12,13 @@ function BlogPost() {
     if (!params.postId) return;
 
     fetch(`http://localhost:3000/api/blogs/post/${params.postId}`)
-      .then((res) => {
+      .then(async (res) => {
         if (res.status === 200) {
-          return res.json();
+          const data = await res.json();
+
+          setBlogPost(data.post);
         }
       })
-      .then((data) => {
-        setBlogPost(data.post);
-      });
   }, []);
 
   if (blogPost === null) {

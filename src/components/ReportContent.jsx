@@ -6,8 +6,10 @@ import '../styles/single-column-grid-form.css';
 
 function ReportContent({ contentType, contentId, reportedUser }) {
   const { currentUser, setCurrentUser } = useContext(UserContext);
+  const [ message, setMessage ] = useState('');
   const [ active, setActive ] = useState(false);
   const reasonArea = useRef(null);
+  const reportedMessage = "Thank you for reporting this issue";
   const idString = `report-${contentType}-${contentId}`;
 
   const reportContent = () => {
@@ -35,9 +37,9 @@ function ReportContent({ contentType, contentId, reportedUser }) {
       })
       .then((res) => {
         if (res.status === 204) {
-          alert('Thank you for reporting this issue');
+          setMessage(reportedMessage);
         } else {
-          alert('Could not complete your report at this time');
+          setMessage('Could not complete your report at this time');
         }
       })
       .catch((err) => {
@@ -46,10 +48,16 @@ function ReportContent({ contentType, contentId, reportedUser }) {
       })
   }
 
+  if (currentUser !== null && message === reportedMessage) {
+    return (
+      <div>{ message }</div>
+    )
+  }
   if (currentUser !== null) {
     return (
       <div>
         <button onClick={() => setActive(!active)}>Report</button>
+        { message !== '' && <p>{message}</p> } 
         <div className={`form-area single-column-grid-form ${styles.reportForm} ${active ? styles.active : ''}`}>
           <form onSubmit={(e) => {
             e.preventDefault();

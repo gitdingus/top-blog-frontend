@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { unescape } from 'validator';
 import CommentArea from '../components/CommentArea.jsx';
+import ReportContent from '../components/ReportContent.jsx';
 import defaultAuthorImage from '../images/account.png';
 import styles from '../styles/blogpost.module.css';
 function BlogPost() {
@@ -54,6 +55,9 @@ function BlogPost() {
       </div>
       <div className={styles.commentArea}>
         <CommentArea />
+      </div>
+      <div className={styles.reportForm}>
+        <ReportContent contentType='BlogPost' contentId={params.postId} reportedUser={blogPost.author.doc.username}/>
       </div>
     </div>
   )

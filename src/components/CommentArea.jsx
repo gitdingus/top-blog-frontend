@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { unescape } from 'validator';
 import { UserContext } from '../contexts/UserContext.jsx';
+import ReportContent from './ReportContent.jsx';
 import getLoggedInUser from '../utils/getLoggedInUser';
 import createErrorObject from '../utils/createErrorObject.js';
 import styles from '../styles/comment-area.module.css';
@@ -113,6 +114,7 @@ function CommentArea() {
                 }
                 <p>{new Date(comment.created).toLocaleString()}</p>
                 <p>{unescape(comment.content)}</p>
+                <ReportContent contentType="Comment" contentId={comment._id} reportedUser={comment.author.doc.username} />
               </div>
             )
           })

@@ -23,7 +23,9 @@
 }
 
 .articleHeader,
-.postContent {
+.postContent,
+.commentArea,
+.reportForm {
   grid-column: 1 / 2;
 }
 
@@ -39,7 +41,4 @@
   white-space: pre-wrap;
 }
 
-.commentArea {
-  grid-column: 1 / 2;
-}
 

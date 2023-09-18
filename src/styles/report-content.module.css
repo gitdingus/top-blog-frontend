@@ -1,0 +1,7 @@
+.reportForm {
+  display: none;
+}
+
+.reportForm.active {
+  display: block;
+}

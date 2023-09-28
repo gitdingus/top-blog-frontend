@@ -1,0 +1,18 @@
+.reportsTable {
+  border-style: collapse;
+  width: 100%;
+}
+
+.reportsTable td {
+  padding: 5px 15px;
+}
+
+.detailsLink img{
+  height: 30px;
+  width: 30px;
+}
+
+.active {
+  background-color: #f5f5f5;
+}
+

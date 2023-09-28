@@ -7,6 +7,10 @@
   display: grid;
 }
 
+.form-area form label {
+  margin-bottom: 5px;
+}
+
 .form-area form input,
 .form-area form select,
 .form-area form textarea {

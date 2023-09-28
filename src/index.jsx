@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
+import AdminPanel from './views/Admin.jsx';
 import Author from './views/Author.jsx';
 import Blog from './views/Blog.jsx';
 import BlogManager from './views/BlogManager.jsx';
@@ -20,6 +21,8 @@ import ReaderRoot from './views/Root.jsx';
 import ChangePassword from './components/ChangePassword.jsx';
 import UpdatePersonalInformation from './components/UpdatePersonalInformation.jsx';
 import UpdateSettings from './components/UpdateSettings.jsx';
+import ViewReport from './components/ViewReport.jsx';
+import ViewReports from './components/ViewReports.jsx';
 import ViewUsersBlogs from './components/ViewUsersBlogs.jsx';
 import ViewUsersBlogPosts from './components/ViewUsersBlogPosts.jsx';
 
@@ -92,6 +95,22 @@ const router = createBrowserRouter([
           {
             path: 'blogs/:blogId/create-post',
             element: <CreateBlogPost />,
+          },
+        ],
+      },
+      {
+        path: 'admin',
+        element: <AdminPanel />,
+        children: [
+          {
+            path: 'reports',
+            element: <ViewReports />,
+            children: [
+              {
+                path: ':reportId',
+                element: <ViewReport />
+              },
+            ],
           },
         ],
       },

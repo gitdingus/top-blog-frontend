@@ -14,7 +14,10 @@ function AdminPanel() {
       <div>
         <ul>
           <li>
-            <Link to="reports">View Reports</Link>
+            <Link to="reports">Reports</Link>
+          </li>
+          <li>
+            <Link to="users">Users</Link>
           </li>
         </ul>
       </div>

@@ -23,6 +23,7 @@ import UpdatePersonalInformation from './components/UpdatePersonalInformation.js
 import UpdateSettings from './components/UpdateSettings.jsx';
 import ViewReport from './components/ViewReport.jsx';
 import ViewReports from './components/ViewReports.jsx';
+import ViewUsers from './components/ViewUsers.jsx';
 import ViewUsersBlogs from './components/ViewUsersBlogs.jsx';
 import ViewUsersBlogPosts from './components/ViewUsersBlogPosts.jsx';
 
@@ -111,6 +112,10 @@ const router = createBrowserRouter([
                 element: <ViewReport />
               },
             ],
+          },
+          {
+            path: 'users',
+            element: <ViewUsers />,
           },
         ],
       },

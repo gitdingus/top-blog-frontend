@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { unescape } from 'validator';
 import getLoggedInUser from '../utils/getLoggedInUser.js';
 import { UserContext } from '../contexts/UserContext.jsx';
@@ -95,7 +95,7 @@ function ViewReport() {
         <div className="user-generated-info">
           <p>Type: {report.contentType}</p>
           <p>Reporting User: {report.reportingUser}</p>
-          <p>Reported User: {report.reportedUser}</p>
+          <p>Reported User: <Link to={`/admin/users/${report.reportedUser}`}>{report.reportedUser}</Link></p>
           <p>Reported on { new Date(report.reportCreated).toLocaleString()}</p>
           <p>Reason for report: {unescape(report.reason)}</p>
         </div>

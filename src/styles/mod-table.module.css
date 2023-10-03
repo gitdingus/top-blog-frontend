@@ -1,9 +1,9 @@
-.reportsTable {
+.modTable {
   border-style: collapse;
   width: 100%;
 }
 
-.reportsTable td {
+.modTable td {
   padding: 5px 15px;
 }
 

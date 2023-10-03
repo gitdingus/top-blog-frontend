@@ -3,7 +3,7 @@ import { Link, Outlet, useParams } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext.jsx';
 import getLoggedInUser from '../utils/getLoggedInUser.js';
 import detailsSvg from '../images/clipboard-edit.svg';
-import styles from '../styles/view-reports.module.css';
+import styles from '../styles/mod-table.module.css';
 
 function ViewReports() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -185,7 +185,7 @@ function ViewReports() {
       { 
         reports.length > 0 &&
         <div className={styles.reports}>
-          <table className={styles.reportsTable}>
+          <table className={styles.modTable}>
             <thead>
               <tr>
                 <th>Content Type</th>
@@ -206,7 +206,7 @@ function ViewReports() {
                       <td>{report.reportingUser}</td>
                       <td>{new Date(report.reportCreated).toLocaleString()}</td>
                       <td><input type="checkbox" checked={report.settled || false} readOnly /></td>
-                      <td><Link className={styles.detailsLink} to={`${report._id}`}><img src={detailsSvg} alt="view report details" /></Link></td>
+                      <td><Link className={styles.detailsLink} to={report._id}><img src={detailsSvg} alt="view report details" /></Link></td>
                     </tr>
                   )
                 })

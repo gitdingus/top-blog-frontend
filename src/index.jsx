@@ -21,6 +21,7 @@ import ReaderRoot from './views/Root.jsx';
 import ChangePassword from './components/ChangePassword.jsx';
 import UpdatePersonalInformation from './components/UpdatePersonalInformation.jsx';
 import UpdateSettings from './components/UpdateSettings.jsx';
+import UploadProfilePicture from './components/UploadProfilePicture.jsx';
 import ViewReport from './components/ViewReport.jsx';
 import ViewReports from './components/ViewReports.jsx';
 import ViewUser from './components/ViewUser.jsx';
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
             path: 'settings',
             element: <UpdateSettings />,
           },
+          {
+            path: 'profile-pic',
+            element: <UploadProfilePicture />,
+          }
         ],
       },
       {

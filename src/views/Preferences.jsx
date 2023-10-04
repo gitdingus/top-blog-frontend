@@ -22,6 +22,9 @@ function Preferences() {
         <li className={`${location.pathname.match(/settings/) !== null ? styles.active : ''}`}>
           <Link to="settings">Update Settings</Link>
         </li>
+        <li className={`${location.pathname.match(/profile-pic/) !== null ? styles.active : ''}`}>
+          <Link to="profile-pic">Profile Picture</Link>
+        </li>
       </ul>
       <div className={styles.preferences}>
         <Outlet />

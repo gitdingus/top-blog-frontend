@@ -302,6 +302,6 @@ function urlReducer(state, action) {
       searchParams.set(action.field, action.value);
     }
   }
-  return state;
+  return new URL(state);
 }
 export default ViewReports;

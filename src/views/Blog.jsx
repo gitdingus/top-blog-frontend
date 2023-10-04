@@ -4,6 +4,7 @@ import { unescape } from 'validator';
 import CategoryButton from '../components/CategoryButton.jsx';
 import defaultAuthorImage from '../images/account.png';
 import styles from '../styles/blog.module.css';
+import imageStyles from '../styles/images.module.css';
 
 function Blog() {
   const params = useParams();
@@ -52,7 +53,7 @@ function Blog() {
   return (
     <div>
       <div className={styles.authorInfo}>
-        <img src={blog.owner.doc.image || defaultAuthorImage} alt='author' />
+        <img className={imageStyles.profileImage} src={blog.owner.doc.image || defaultAuthorImage} alt='author' />
         <p>
           {
             (

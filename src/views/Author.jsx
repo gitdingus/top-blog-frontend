@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BlogThumb from '../components/BlogThumb.jsx';
 import defaultAuthorImage from '../images/account.png';
+import imageStyles from '../styles/images.module.css';
 
 function Author() {
   const params = useParams();
@@ -50,7 +51,7 @@ function Author() {
             (
               author.public && 
               <div>
-                <img src={author.image || defaultAuthorImage} alt="author" />
+                <img className={imageStyles.profileImage} src={author.image || defaultAuthorImage} alt="author" />
                 <p>{author.firstName} {author.lastName}</p>
                 <p>{author.email}</p>
                 <p>Joined: {new Date(author.accountCreated).toLocaleDateString()}</p>

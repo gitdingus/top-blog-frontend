@@ -5,6 +5,8 @@ import CommentArea from '../components/CommentArea.jsx';
 import ReportContent from '../components/ReportContent.jsx';
 import defaultAuthorImage from '../images/account.png';
 import styles from '../styles/blogpost.module.css';
+import imageStyles from '../styles/images.module.css';
+
 function BlogPost() {
   const params = useParams();
   const [ blogPost, setBlogPost ] = useState(null);
@@ -29,7 +31,7 @@ function BlogPost() {
   return (
     <div className={styles.blogContent}>
       <div className={styles.authorInfo}>
-        <img src={blogPost.author.doc.image || defaultAuthorImage} alt="author" />
+        <img className={imageStyles.profileImage} src={blogPost.author.doc.image || defaultAuthorImage} alt="author" />
         <p>
           {
             (

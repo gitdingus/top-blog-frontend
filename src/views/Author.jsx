@@ -47,25 +47,20 @@ function Author() {
     return (
       <div className="author">
         <div className="info">
-          {
-            (
-              author.public && 
-              <div>
-                <img className={imageStyles.profileImage} src={author.image || defaultAuthorImage} alt="author" />
-                <p>{author.firstName} {author.lastName}</p>
-                <p>{author.email}</p>
-                <p>Joined: {new Date(author.accountCreated).toLocaleDateString()}</p>
-              </div>
-            ) 
-            || 
-            (
-              <div>
-                <img src={defaultAuthorImage} alt="author" />
-                <p>{author.username}</p>
-                <p>Joined: {new Date(author.accountCreated).toLocaleDateString()}</p>
-              </div>
-            )
-          }
+          <div>
+            <img className={imageStyles.profileImage} src={author.image || defaultAuthorImage} alt="author" />
+            {
+              author.public &&
+              (
+                <>
+                  <p>{author.firstName} {author.lastName}</p>
+                  <p>{author.email}</p>
+                </>
+              ) ||
+              <p>{author.username}</p>
+            }
+            <p>Joined: {new Date(author.accountCreated).toLocaleDateString()}</p>
+          </div>
         </div>
         <div className="blog-list">
           {

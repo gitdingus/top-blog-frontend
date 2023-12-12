@@ -19,7 +19,7 @@ function UpdateSettings() {
   }, [currentUser]);
 
   function updateSettings() {
-    fetch(`http://localhost:3000/api/users/${currentUser._id}/update-settings`, {
+    fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/update-settings`, {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -58,7 +58,7 @@ function UpdateSettings() {
       <form onSubmit={(e) => {
         e.preventDefault();
 
-        fetch(`http://localhost:3000/api/current-user`, {
+        fetch(`${FETCH_BASE_URL}/current-user`, {
           credentials: 'include',
         })
           .then((res) => {

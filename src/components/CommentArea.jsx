@@ -20,7 +20,7 @@ function CommentArea() {
   }, []);
 
   function getComments() {
-    fetch(`http://localhost:3000/api/blogs/post/${params.postId}/comments`)
+    fetch(`${FETCH_BASE_URL}/blogs/post/${params.postId}/comments`)
       .then(async(res) => {
         if (res.status === 200) {
           const data = await res.json();
@@ -31,7 +31,7 @@ function CommentArea() {
   }
   // /api/users/:userId/blogs/post/:postId/create-comment
   function postComment() {
-    fetch(`http://localhost:3000/api/users/${currentUser._id}/blogs/post/${params.postId}/create-comment`, {
+    fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/blogs/post/${params.postId}/create-comment`, {
       method: 'post',
       credentials: 'include',
       headers: {

@@ -14,7 +14,7 @@ function ViewUsersBlogPosts() {
   const [ blogPosts, setBlogPosts ] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/users/${currentUser._id}/blogs`, {
+    fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/blogs`, {
       credentials: 'include',
     })
       .then(async (res) => {
@@ -33,7 +33,7 @@ function ViewUsersBlogPosts() {
   }, []);
 
   const getBlogPosts = (blogId) => {
-    fetch(`http://localhost:3000/api/users/${currentUser._id}/blogs/${blogId}/posts?minimal=true`, {
+    fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/blogs/${blogId}/posts?minimal=true`, {
       credentials: 'include',
     })
       .then(async (res) => {
@@ -47,7 +47,7 @@ function ViewUsersBlogPosts() {
 
   const deleteBlogPost = (blogPostId, blogPostTitle) => {
     if (confirm(`Delete blog post: ${blogPostTitle}?`)) {
-      fetch(`http://localhost:3000/api/users/${currentUser._id}/blog-posts/${blogPostId}`, {
+      fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/blog-posts/${blogPostId}`, {
         method: 'delete',
         credentials: 'include',
       })
@@ -63,7 +63,7 @@ function ViewUsersBlogPosts() {
 
   const togglePrivate = (blogPost) => {
     console.log("in toggle");
-    fetch(`http://localhost:3000/api/users/${currentUser._id}/blog-posts/${blogPost._id}/edit`, {
+    fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/blog-posts/${blogPost._id}/edit`, {
       method: 'post',
       headers: {
         'content-type': 'application/json',

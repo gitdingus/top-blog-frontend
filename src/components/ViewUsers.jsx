@@ -7,7 +7,7 @@ import editSvg from '../images/clipboard-edit.svg';
 
 function ViewUsers() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
-  const [ searchUrl, dispatchSearchUrl ] = useReducer(urlReducer, new URL('http://localhost:3000/api/moderation/users'));
+  const [ searchUrl, dispatchSearchUrl ] = useReducer(urlReducer, new URL(`${FETCH_BASE_URL}/moderation/users`));
   const [ lastUrl, setLastUrl ] = useState(null);
   const [ users, setUsers ] = useState([]);
 
@@ -17,7 +17,7 @@ function ViewUsers() {
       return;
     }
 
-    fetch(`http://localhost:3000/api/moderation/users`, {
+    fetch(`${FETCH_BASE_URL}/moderation/users`, {
       credentials: 'include',
     })
       .then((res) => {

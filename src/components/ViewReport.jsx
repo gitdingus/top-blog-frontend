@@ -19,7 +19,7 @@ function ViewReport() {
           throw new Error('Session Expired');
         }
 
-        return fetch(`http://localhost:3000/api/reports/${reportId}`, {
+        return fetch(`${FETCH_BASE_URL}/reports/${reportId}`, {
           credentials: 'include',
         });
       })
@@ -42,7 +42,7 @@ function ViewReport() {
       return;
     }
 
-    fetch(`http://localhost:3000/api/moderation/${report.contentType}/${report.contentId}`, {
+    fetch(`${FETCH_BASE_URL}/moderation/${report.contentType}/${report.contentId}`, {
       credentials: 'include',
     })
       .then(async (res) => {
@@ -65,7 +65,7 @@ function ViewReport() {
           throw new Error('Session Expired');
         }
 
-        return fetch(`http://localhost:3000/api/moderation/content?action=${modAction.current.value}`, {
+        return fetch(`${FETCH_BASE_URL}/moderation/content?action=${modAction.current.value}`, {
           method: 'post',
           credentials: 'include',
           headers: {

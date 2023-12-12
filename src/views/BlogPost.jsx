@@ -14,7 +14,7 @@ function BlogPost() {
   useEffect(() => {
     if (!params.postId) return;
 
-    fetch(`http://localhost:3000/api/blogs/post/${params.postId}`)
+    fetch(`${FETCH_BASE_URL}/blogs/post/${params.postId}`)
       .then(async (res) => {
         if (res.status === 200) {
           const data = await res.json();

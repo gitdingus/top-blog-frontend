@@ -18,7 +18,7 @@ function ViewUsersBlogs() {
     getLoggedInUser()
       .then((userData) => {
         if (currentUser._id === userData._id) {
-          fetch(`http://localhost:3000/api/users/${currentUser._id}/blogs/`, {
+          fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/blogs/`, {
             credentials: 'include',
           })
             .then((res) => {
@@ -43,7 +43,7 @@ function ViewUsersBlogs() {
     const confirm = window.confirm(`Delete blog ${blogName} and all its posts?`);
     
     if (confirm) {
-      fetch(`http://localhost:3000/api/users/${currentUser._id}/blogs/${blogId}`, {
+      fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/blogs/${blogId}`, {
         method: 'delete',
         credentials: 'include',
       })
@@ -61,7 +61,7 @@ function ViewUsersBlogs() {
     const blog = blogs.find((blog) => blog._id === blogId);
     const priv = (blog.private === undefined || blog.private === false) ? false : true;
 
-    fetch(`http://localhost:3000/api/users/${currentUser._id}/blogs/${blogId}/edit`, {
+    fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/blogs/${blogId}/edit`, {
       method: 'post',
       headers: {
         'content-type': 'application/json',

@@ -39,7 +39,7 @@ function AccountManager() {
                 (e) => {
                   e.preventDefault();
 
-                  fetch('http://localhost:3000/api/login', {
+                  fetch(`${FETCH_BASE_URL}/login`, {
                     method: 'post',
                     headers: {
                       'content-type': 'application/json',
@@ -92,7 +92,7 @@ function AccountManager() {
                 (e) => {
                   e.preventDefault();
 
-                  fetch('http://localhost:3000/api/create-account', {
+                  fetch(`${FETCH_BASE_URL}/create-account`, {
                     method: 'post',
                     headers: {
                       'content-type': 'application/json',
@@ -123,7 +123,7 @@ function AccountManager() {
                       } else if (res.status === 200) {
                         setCreateAccountErrors({});
                         setShowCreateAccountModal(false);
-                        fetch('http://localhost:3000/api/login', {
+                        fetch(`${FETCH_BASE_URL}/login`, {
                           method: 'post',
                           credentials: 'include',
                           headers: {
@@ -200,7 +200,7 @@ function AccountManager() {
         <p>Welcome { (currentUser.firstName && currentUser.lastName && `${currentUser.firstName} ${currentUser.lastName}`) || `${currentUser.username}`}</p>
         <Link className="clicker" to="preferences">Manage Preferences</Link>
         <button className="clicker" onClick={() => {
-          fetch('http://localhost:3000/api/logout', {
+          fetch(`${FETCH_BASE_URL}/logout`, {
             method: 'post',
             credentials: 'include',
           })

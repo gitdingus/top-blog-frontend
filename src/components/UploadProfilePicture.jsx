@@ -22,7 +22,7 @@ function UploadProfilePicture() {
             e.preventDefault();
             const formData = new FormData(uploadPhotoForm.current);
         
-            fetch(`http://localhost:3000/api/users/${currentUser._id}/profile-pic`, {
+            fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/profile-pic`, {
               method: 'post',
               credentials: 'include',
               body: formData,
@@ -55,7 +55,7 @@ function UploadProfilePicture() {
           <form ref={deletePhotoForm} onSubmit={(e) => {
             e.preventDefault();
 
-            fetch(`http://localhost:3000/api/users/${currentUser._id}/profile-pic`, {
+            fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/profile-pic`, {
               method: 'delete',
               credentials: 'include',
               headers: {

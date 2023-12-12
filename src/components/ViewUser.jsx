@@ -7,7 +7,7 @@ function ViewUser() {
   const { username } = useParams();
   const { currentUser, setCurrentUser } = useContext(UserContext);
   const [ user, setUser ] = useState(null);
-  const [ updateUrl, dispatchUpdateUrl ] = useReducer(updateReducer, new URL('http://localhost:3000/api/moderation/users/'));
+  const [ updateUrl, dispatchUpdateUrl ] = useReducer(updateReducer, new URL(`${FETCH_BASE_URL}/moderation/users/`));
   const allowedAccountTypes = [ 'Admin', 'Moderator' ];
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function ViewUser() {
       return;
     }
 
-    fetch(`http://localhost:3000/api/moderation/users?username=${username}`, {
+    fetch(`${FETCH_BASE_URL}/moderation/users?username=${username}`, {
       credentials: 'include',
     })
       .then(async (res) => {

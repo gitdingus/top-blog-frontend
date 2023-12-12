@@ -9,7 +9,7 @@ function Home() {
   const [ categories, setCategories ] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/blogs/recent-posts')
+    fetch(`${FETCH_BASE_URL}/blogs/recent-posts`)
       .then((res) => {
         if (res.status === 200) {
           return res.json();
@@ -19,7 +19,7 @@ function Home() {
         setRecentPosts(data.recentPosts);
       });
 
-    fetch('http://localhost:3000/api/blogs/categories?limit=10')
+    fetch(`${FETCH_BASE_URL}/blogs/categories?limit=10`)
       .then((res) => {
         if (res.status === 200) {
           return res.json();

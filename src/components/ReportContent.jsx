@@ -20,7 +20,7 @@ function ReportContent({ contentType, contentId, reportedUser }) {
         }
       })
       .then(() => {
-        return fetch(`http://localhost:3000/api/reports`, {
+        return fetch(`${FETCH_BASE_URL}/reports`, {
           method: 'post',
           headers: {
             'content-type': 'application/json',

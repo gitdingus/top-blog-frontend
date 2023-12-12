@@ -11,7 +11,7 @@ function Category() {
   useEffect(() => {
     if (params.categoryId === undefined) return;
     
-    fetch(`http://localhost:3000/api/blogs/categories/${params.categoryId}`)
+    fetch(`${FETCH_BASE_URL}/blogs/categories/${params.categoryId}`)
       .then((res) => {
         if (res.status === 200) {
           return res.json();
@@ -25,7 +25,7 @@ function Category() {
   useEffect(() => {
     if (category === null) return; 
 
-    fetch(`http://localhost:3000/api/blogs?category=${category._id}`)
+    fetch(`${FETCH_BASE_URL}/blogs?category=${category._id}`)
       .then((res) => {
         if (res.status === 200) {
           return res.json();

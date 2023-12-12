@@ -11,7 +11,7 @@ function Author() {
   useEffect(() => {
     if (!params.username) return;
 
-    fetch(`http://localhost:3000/api/blogs/authors/${params.username}`)
+    fetch(`${FETCH_BASE_URL}/blogs/authors/${params.username}`)
       .then((res) => {
         if (res.status === 200) {
           return res.json();
@@ -25,7 +25,7 @@ function Author() {
   useEffect(() => {
     if (author === null) return;
 
-    fetch(`http://localhost:3000/api/blogs?owner=${author.username}&preview=true`)
+    fetch(`${FETCH_BASE_URL}/blogs?owner=${author.username}&preview=true`)
       .then((res) => {
         if (res.status === 200) {
           return res.json();

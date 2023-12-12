@@ -1,6 +1,6 @@
 export default function getLoggedInUser() {
 
-  return fetch('http://localhost:3000/api/current-user', {
+  return fetch(`${FETCH_BASE_URL}/current-user`, {
     credentials: 'include',
   })
     .then((res) => {

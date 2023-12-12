@@ -5,7 +5,7 @@ function Categories() {
   const [ categories, setCategories ] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/blogs/categories')
+    fetch(`${FETCH_BASE_URL}/blogs/categories`)
       .then((res) => {
         if (res.status === 200) {
           return res.json();

@@ -45,7 +45,7 @@ function UpdatePersonalInformation() {
       return;
     }
 
-    fetch(`http://localhost:3000/api/users/${currentUser._id}/update`, {
+    fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/update`, {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -87,7 +87,7 @@ function UpdatePersonalInformation() {
       <form onSubmit={(e) => {
         e.preventDefault();
 
-        fetch('http://localhost:3000/api/current-user', {
+        fetch(`${FETCH_BASE_URL}/current-user`, {
           credentials: 'include',
         })
           .then((res) => {

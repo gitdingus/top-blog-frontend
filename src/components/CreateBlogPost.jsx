@@ -19,7 +19,7 @@ function CreateBlogPost() {
     const userId = currentUser._id;
     const blogId = params.blogId;
 
-    fetch(`http://localhost:3000/api/users/${userId}/blogs/${blogId}/create-post`, {
+    fetch(`${FETCH_BASE_URL}/users/${userId}/blogs/${blogId}/create-post`, {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -31,7 +31,6 @@ function CreateBlogPost() {
       }),
     })
       .then(async (res) => {
-        console.log('fetched');
         if (res.status === 200 || res.status === 400) {
           const data = await res.json();
 
@@ -44,8 +43,6 @@ function CreateBlogPost() {
           }
         }
       });
-
-    console.log('fetch called');
   }
 
   return (

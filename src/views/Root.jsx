@@ -10,7 +10,7 @@ function ReaderRoot() {
 
   useEffect(() => {
     if (currentUser === null) {
-      fetch('http://localhost:3000/api/current-user', {
+      fetch(`${FETCH_BASE_URL}/current-user`, {
         credentials: 'include',
       })
         .then((res) => {

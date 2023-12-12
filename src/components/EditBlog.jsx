@@ -19,7 +19,7 @@ function EditBlog() {
     if (currentUser === null) return;
     if (params.blogId === null) return;
 
-    fetch(`http://localhost:3000/api/users/${currentUser._id}/blogs/${params.blogId}`, {
+    fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/blogs/${params.blogId}`, {
       credentials: 'include',
     })
       .then((res) => {
@@ -40,7 +40,7 @@ function EditBlog() {
   }, [ currentUser ]);
 
   function editBlog() {
-    fetch(`http://localhost:3000/api/users/${currentUser._id}/blogs/${params.blogId}/edit`, {
+    fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/blogs/${params.blogId}/edit`, {
       method: 'post',
       credentials: 'include',
       headers: {

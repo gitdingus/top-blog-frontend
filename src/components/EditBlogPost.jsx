@@ -19,7 +19,7 @@ function EditBlogPost() {
     if (currentUser === null) return;
     if (blogPostId === undefined) return;
 
-    fetch(`http://localhost:3000/api/users/${currentUser._id}/blog-posts/${blogPostId}`, {
+    fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/blog-posts/${blogPostId}`, {
       credentials: 'include',
     })
       .then(async (res) => {
@@ -41,7 +41,7 @@ function EditBlogPost() {
   }
 
   const editPost = () => {
-    fetch(`http://localhost:3000/api/users/${currentUser._id}/blog-posts/${blogPostId}/edit`, {
+    fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/blog-posts/${blogPostId}/edit`, {
       method: 'post',
       credentials: 'include',
       headers: {

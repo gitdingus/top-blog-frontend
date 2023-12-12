@@ -14,7 +14,7 @@ function Blog() {
   useEffect(() => {
     if (!params.blogName) return;
 
-    fetch(`http://localhost:3000/api/blogs/${params.blogName}`)
+    fetch(`${FETCH_BASE_URL}/blogs/${params.blogName}`)
       .then(async (res) => {
         if (res.status === 200) {
           const data = await res.json();
@@ -31,7 +31,7 @@ function Blog() {
     if (blog === null) return;
     if (blog.owner.status === 'Banned') return;
     
-    fetch(`http://localhost:3000/api/blogs/${params.blogName}/posts`)
+    fetch(`${FETCH_BASE_URL}/blogs/${params.blogName}/posts`)
       .then((res) => {
         if (res.status === 200) {
           return res.json();

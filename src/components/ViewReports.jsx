@@ -7,7 +7,7 @@ import styles from '../styles/mod-table.module.css';
 
 function ViewReports() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
-  const [ searchUrl, dispatchSearchUrl ] = useReducer(urlReducer, new URL('http://localhost:3000/api/reports?settled=false'));
+  const [ searchUrl, dispatchSearchUrl ] = useReducer(urlReducer, new URL(`${FETCH_BASE_URL}/reports?settled=false`));
   const { reportId } = useParams();
   const [ reports, setReports ] = useState([]);
   const [ lastUrl, setLastUrl ] = useState(null);

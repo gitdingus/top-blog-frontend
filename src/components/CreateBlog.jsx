@@ -15,7 +15,7 @@ function CreateBlog() {
   const [ message, setMessage ] = useState('');
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/blogs/categories`)
+    fetch(`${FETCH_BASE_URL}/blogs/categories`)
       .then((res) => {
         if (res.status === 200) {
           return res.json();
@@ -36,7 +36,7 @@ function CreateBlog() {
   }
 
   function createBlog() {
-    fetch(`http://localhost:3000/api/users/${currentUser._id}/blogs/create-blog`, {
+    fetch(`${FETCH_BASE_URL}/users/${currentUser._id}/blogs/create-blog`, {
       method: 'post',
       headers: {
         'content-type': 'application/json',

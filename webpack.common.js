@@ -1,5 +1,4 @@
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.jsx',
@@ -38,10 +37,4 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HTMLWebpackPlugin({
-      template: '/src/templates/index.html',
-      publicPath: '/', // Need this for react-router historyApiFallback
-    }),
-  ],
 };
